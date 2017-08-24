@@ -1,0 +1,37 @@
+﻿[
+  {
+    "CityName": "İstanbul",
+    "CityURL": "~/Images/istanbul",
+    "CityDescription": "İstanbul, Türkiye'de yer alan şehir ve ülkenin 81 ilinden biri. Ülkenin en kalabalık, ekonomik ve sosyo-kültürel açıdan en önemli şehridir. Şehir, iktisadi büyüklük açısından dünyada 34., nüfus açısından belediye sınırları göz önüne alınarak yapılan sıralamaya göre Avrupa'da birinci, dünyada ise Lagos'tan sonra altıncı sırada yer almaktadır.",
+    "CityLatitude": 41.008238,
+    "CityLongitude": 28.978359
+  },
+  {
+    "CityName": "Londra",
+    "CityURL": "~/Images/londra",
+    "CityDescription": "Londra dünyanın en önemli iş ve finans merkezlerinden biridir. Yaklaşık 8 milyonluk nüfusuyla AB'nin 2. kalabalık kentidir. Bağlı yerleşim birimleri ile birlikte (Greater London) nüfusu 12-15 milyondur. Km²'ye 4.573 kişi düşmektedir. Avrupa'da en fazla beyaz ırk harici insanın yaşadığı şehirdir. 300'den fazla farklı dil konuşulmaktadır.",
+    "CityLatitude": 51.507351,
+    "CityLongitude": -0.127758
+  },
+  {
+    "CityName": "Antalya",
+    "CityURL": "~/Images/antalya",
+    "CityDescription": "Antalya, Türkiye'nin bir ili ve en kalabalık beşinci şehri. 2015 sonu itibarıyla 2 milyon 288 bin 456 kişilik nüfusa sahiptir. Nüfusun 1.156.076'sı erkek, 1.132.380'i kadındır. Tamamı Akdeniz Bölgesi'nin batısında yer alır ve Antalya Körfezi'yle Batı Torosların arasında kurulmuştur. Yüzölçümü bakımından Türkiye'nin altıncı büyük ilidir. Güneyinde Akdeniz, batısında Muğla, kuzeyinde Burdur ve Isparta, kuzeydoğusunda Konya, doğusunda ise Karaman ve Mersin illeri vardır.",
+    "CityLatitude": 36.896891,
+    "CityLongitude": 30.713323
+  },
+  {
+    "CityName": "İzmir",
+    "CityURL": "~/Images/izmir",
+    "CityDescription": "İzmir, Türkiye'nin bir ili ve en kalabalık üçüncü şehri. Anadolu Yarımadası'nın batısında, Ege Bölgesi'nin ortasında yer alan ve İzmir Körfezi çevresinde bulunan şehir, her yıl İzmir Enternasyonal Fuarı'nı düzenleyen önemli bir fuar merkezi ve liman kentidir. Yüz ölçümü olarak ülkenin yirmi üçüncü büyük ilidir. Batısında Ege Denizi ve Ege Adaları, güneyinde Aydın, kuzeyinde Balıkesir, doğusunda ise Manisa vardır.",
+    "CityLatitude": 38.423734,
+    "CityLongitude": 27.142826
+  },
+  {
+    "CityName": "Ankara",
+    "CityURL": "~/Images/ankara",
+    "CityDescription": "Ankara, Türkiye'nin bir ili, başkenti ve en kalabalık ikinci şehri.Nüfusu 2015 itibarıyla 5.270.575 kişidir. Coğrafi olarak Türkiye'nin merkezine yakın bir konumda bulunur ve Batı Karadeniz Bölgesi'nde kalan kuzey kesimleri hariç, büyük bölümü İç Anadolu Bölgesi'nde yer alır. Yüz ölçümü olarak ülkenin üçüncü büyük ilidir. Etrafı Bolu, Çankırı, Kırıkkale, Kırşehir, Aksaray, Konya ve Eskişehir illeri ile çevrilidir.",
+    "CityLatitude": 39.933363,
+    "CityLongitude": 32.859742
+  }
+]

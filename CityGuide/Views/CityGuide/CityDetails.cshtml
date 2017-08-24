@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "CityDetails";
+    Layout = "";
+}
+
+@model CityGuide.Models.CitiesInfo
+
+<div class="container">
+    <!--  city description  -->
+    <div class="page-header">
+        <guide>@Model.CityName</guide>
+    </div>
+    <blockquote>
+        <p class="text-info">@Model.CityDescription</p>
+        <footer><mark>From Wikipedia</mark></footer>
+    </blockquote>
+
+    <!--  city images  -->
+    <div class="page-header"><guide>Şehir Görselleri</guide></div>
+    <div class="img-thumbnail">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_1.jpg" style="width:800px;height:400px">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_2.jpg" style="width:800px;height:400px">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_3.jpg" style="width:800px;height:400px">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_4.jpg" style="width:800px;height:400px">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_5.jpg" style="width:800px;height:400px">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_6.jpg" style="width:800px;height:400px">
+        <img class="cityImages" src="@Url.Content(Model.CityURL)/city_7.jpg" style="width:800px;height:400px">
+        <p class="col-xs-12 col-md-offset-4 text-info">Famous Places Of @Model.CityName</p>
+        <div class="col-xs-12 col-md-offset-4">
+            <div>
+                <button type="button" class="btn btn-info" onclick="forwardSlideIndex(-1)"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Prev</button>
+                <button type="button" class="btn btn-info" onclick="forwardSlideIndex(1)">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!--  city map  -->
+    <div class="page-header"><guide>Şehir Haritası</guide></div>
+    <div id="cityMap" style="width: 750px; height: 500px"></div>
+</div>
+
+<script>
+    /*
+       şehir detaylarında şehir haritası için yazdığım javascript fonksiyonları
+    */
+
+    $(document).ready(function () {
+        InitializeMap();
+    });
+
+    function InitializeMap() {
+        var city = {
+            cityLatitude: '@Model.CityLatitude',
+            cityLongitude: '@Model.CityLongitude'
+        };
+        var latlong = new google.maps.LatLng(city.cityLatitude, city.cityLongitude);
+        var myOptions = {
+            zoom: 12,
+            center: latlong,
+            mapTypeControl: true,
+            scaleControl: true,
+            zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            fullscreenControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("cityMap"), myOptions);
+    }
+
+    /*
+       şehir detaylarında resim galerisi için yazdığım javascript fonksiyonları
+    */
+
+    var slideIndex = 0;
+
+    changeCityImage(slideIndex);
+
+    function forwardSlideIndex(n) {
+        changeCityImage(slideIndex += n);
+    }
+
+    function changeCityImage(n) {
+        var i;
+        var x = document.getElementsByClassName("cityImages");
+
+        if (n == x.length) { slideIndex = 0 }
+
+        if (n < 0) { slideIndex = x.length - 1 }
+
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+
+        x[slideIndex].style.display = "block";
+    }
+</script>

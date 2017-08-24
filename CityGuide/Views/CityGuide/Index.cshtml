@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<form id="formSearchCity" controller="CityGuide" action="" class="form-horizontal">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="col-xs-12 col-md-offset-4">
+                <guide>City Guide</guide>
+            </div>
+
+            <br><br><br>
+
+            <div class="col-xs-12 col-md-offset-4">
+                <input type="text" name="search" id="searchCity" placeholder="Search City">
+            </div>
+
+            <br><br><br>
+            <br><br><br>
+
+            <div class="col-xs-12 col-md-offset-4">
+                <button type="button" id="btnSearch" class="btn btn-warning" style="height:35px;width:120px">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <translate>Ara</translate>
+                </button>
+
+                <button type="button" id="btnClear" class="btn btn-primary" style="height:35px;width:120px">
+                    <i class="fa fa-eraser" aria-hidden="true"></i>
+                    <translate>Temizle</translate>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="cityInfosSupriseForm"></div>
+
+<script type="text/javascript">
+    /*
+       AutoComplete Textbox için yazdığım Jquery fonksiyonu.
+    */
+    $(function () {
+        $("#searchCity").autocomplete({
+            source: '@Url.Action("GetSearchedCityNames")'
+        });
+    });
+
+    /*
+      Search butonuna tıklandığında çalışacak javascript fonksiyonu.
+      Şehir detayları ajax çağrısı ile controller actionından çekilir.
+    */
+    $('#btnSearch').click(function () {
+        if (isNullOrEmpty($('#searchCity').val())) {
+            displayWarningMessage("Lütfen bir şehir ismi belirleyiniz !");
+        }
+        else {
+            $.ajax({
+                url: '@Url.Action("GetCityDetails", "CityGuide")',
+                data: { CityName: $('#searchCity').val() },
+                type: 'POST',
+                success: function (data) {
+                    $("#cityInfosSupriseForm").html(data);
+                }
+            });
+        }
+    });
+
+    /*
+       Clear butonuna tıklandığında çalışacak javascript fonksiyonu.
+    */
+    $('#btnClear').click(function () {
+        document.getElementById("formSearchCity").reset();
+    });
+
+    /*
+      Bu fonksiyonu search butonuna tıklandıktan sonra AutoComplete Textbox'dan gelen
+      string değerin null veya empty olup olmadığını belirlemek için yazdım. Gelen string
+      null veya empty ise true değilse false döner. Search buton fonksiyonunun içerisinde
+      isNullOrEmpty(x) fonksiyonunu kullanarak AutoComplete Textbox'dan gelen string'in
+      null veya empty olup olmamasını kontrol ettim. Null veya empty ise kullanıcıya toast
+      ile warning mesajı gösterdim.
+    */
+    function isNullOrEmpty(x) {
+        j = 0;
+        if (x == null) {
+            return true;
+        }
+        else {
+            for (i = 0; i < x.length; i++) {
+                if (x.charAt(i) != " ")
+                    j++;
+            }
+            if (j == 0) return true;
+            else return false;
+        }
+    }
+</script>
+
